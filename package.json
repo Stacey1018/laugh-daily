@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "debug": "^4.1.1",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
@@ -21,7 +22,9 @@
     "koa-views": "^6.2.0",
     "mongoose": "^5.9.19",
     "pm2": "^4.4.0",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "superagent": "^5.2.2",
+    "superagent-charset": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
