@@ -1,22 +1,32 @@
 const router = require('koa-router')()
 const User = require('../dbs/models/user')
-
-router.prefix('/users')
+router.prefix('/api/users')
 
 // 注册用户
 router.post('/addUser',async function(ctx){
-  console.log('aaa')
-  let {username,password}=ctx.request.body
-  const user = new User({username,password})
   let code
-  try{
-    await user.save()
-    code = 0
-  }catch(e){
+  let message
+
+  let {username,password}=ctx.request.body
+  const results = await User.find({username})
+  if(results.length>0){
     code = -1
+    message = '该用户名已被占用'
+  }else{
+    const user = new User({username,password})
+    try{
+      await user.save()
+      code = 0
+      message='注册成功'
+    }catch(e){
+      code = -1
+      message='注册失败'
+    }
   }
+
   ctx.body={
-    code:code
+    code:code,
+    message:message
   }
 })
 
@@ -53,9 +63,5 @@ router.post('/removeUser',async function(ctx){
     code:0
   }
 })
-
-
-
-
 
 module.exports = router
