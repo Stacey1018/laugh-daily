@@ -22,7 +22,7 @@
     "koa-views": "^6.2.0",
     "mongoose": "^5.9.19",
     "pm2": "^4.4.0",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "superagent": "^5.2.2",
     "superagent-charset": "^1.2.0"
   },
